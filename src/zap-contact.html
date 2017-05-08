@@ -1,0 +1,196 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="zap-contact">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        margin:  10px;
+        position: absolute;
+        bottom:   0;
+        right:    0;
+      }
+
+      .action--max {
+        background-color: var(--app-action-color);
+        color:            white;
+        width:            100%;
+        border-radius:    5px;
+        box-shadow:       0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+        transition-duration: 250ms;
+        transition-property: all;
+      }
+
+      .action--min {
+        background-color: var(--app-action-color);
+        border-radius:    64px;
+        color:            white;
+        box-shadow:       0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+        transition-duration: 250ms;
+        transition-property: all;
+      }
+
+      .action--min:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        
+        transform:           translateY(-5px);
+        transition-duration: 250ms;
+        transition-property: all;
+
+      }
+
+      .list {
+        list-style-type: none;
+        padding:         0;
+        margin:          0;
+      }
+
+      a.list-item {
+        display: block;
+        padding: 10px 8px;
+        color: white;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--app-secondary-dark-color);
+      }
+
+      .list-item_icon {
+        display: inline-block;
+      }
+
+      .list-item_text {
+        display:     inline-block;
+        font-size:   12px;
+        font-weight: bold;
+        padding-left: 4px;
+      }
+
+      .compress {
+        text-align: center;
+        padding:    8px;
+      }
+
+      .compress :hover {
+        cursor: pointer;
+      }
+    </style>
+
+
+    <div class$="action--[[size]]" on-click="_toggleSize">
+      <template is="dom-if" if="{{isMax}}">
+        <div class="list">
+
+          <a class="list-item" target="_blank" href="https://plus.google.com/115984629662532785581">
+            <div class="list-item_icon">
+              <iron-icon icon="my-icons:google"></iron-icon>
+            </div>
+            <div class="list-item_text">rootwizzy@gmail.com</div>
+          </a>
+
+          <a class="list-item" target="_blank" href="https://github.com/rootwizzy">
+            <div class="list-item_icon">
+              <iron-icon icon="my-icons:github"></iron-icon>
+            </div>
+            <div class="list-item_text">rootwizzy</div>
+          </a>
+
+          <a class="list-item" target="_blank" href="https://www.linkedin.com/in/zack-johnson-52686058/">
+            <div class="list-item_icon">
+              <iron-icon icon="my-icons:linkedin"></iron-icon>
+            </div>
+            <div class="list-item_text">Zack Johnson</div> 
+          </a>
+
+          <a class="list-item" target="_blank" href="https://twitter.com/rootwizzy1">
+            <div class="list-item_icon">
+              <iron-icon icon="my-icons:twitter"></iron-icon>
+            </div>
+            <div class="list-item_text">rootwizzy1</div>        
+          </a>
+
+          <a class="list-item" target="_blank" href="https://www.facebook.com/zmjohnson91">
+            <div class="list-item_icon">
+              <iron-icon icon="my-icons:facebook"></iron-icon>
+            </div>
+            <div class="list-item_text">zmjohnson91</div>
+          </a>
+
+          <a class="list-item" target="_blank" href="https://www.reddit.com/user/rootwizzy/">
+            <div class="list-item_icon">
+              <iron-icon icon="my-icons:reddit"></iron-icon>
+            </div>
+            <div class="list-item_text">rootwizzy</div>
+          </a>
+
+          <a class="list-item" target="_blank" href="http://steamcommunity.com/id/rootwizzy/">
+            <div class="list-item_icon">
+              <iron-icon icon="my-icons:steam"></iron-icon>
+            </div>
+            <div class="list-item_text">WiZZY</div>
+          </a>
+
+          <a>
+            <div class="compress">
+              <iron-icon icon="my-icons:circle-down"></iron-icon>
+            </div>
+          </a>
+
+        </div>
+      </template>
+      
+      <template is="dom-if" if="{{isMin}}">
+        <paper-icon-button  style="width: 64px; height: 64px; padding: 16px;" icon="my-icons:bubbles"></paper-icon-button>   
+      </template>
+
+    </div>
+
+  </template>
+
+  <script>
+    class ZapContact extends Polymer.Element {
+      static get is() { return 'zap-contact'; }
+
+      static get properties() {
+        return {
+          size: {
+            type: String,
+            value: 'min',
+            observer: '_mutateTemplate'
+          },
+
+          isMin: {type: Boolean, value: true},
+          isMax: {type: Boolean, value: false},
+        }
+      }
+
+      _toggleSize() {
+        var size = this.size;
+        if (size === 'min') {
+          this.size = 'max'
+        } else if (size === 'max') {
+          this.size = 'min'
+        }
+      }
+
+      _mutateTemplate(cur, prev) {
+        if (cur === 'min') {
+          this.isMin = true;
+          this.isMax = false;
+        } else if (cur === 'max') {
+          this.isMin = false;
+          this.isMax = true;
+        }
+
+      }
+    }
+
+    window.customElements.define(ZapContact.is, ZapContact);
+  </script>
+</dom-module>
