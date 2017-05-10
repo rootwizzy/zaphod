@@ -8,10 +8,9 @@
     <style include="shared-styles">
       :host {
         display: block;
-        margin:  10px;
-        position: absolute;
-        bottom:   0;
-        right:    0;
+        position: fixed;
+        bottom:   16px;
+        right:    16px;
       }
 
       .action--max {
@@ -19,7 +18,7 @@
         color:            white;
         width:            100%;
         border-radius:    5px;
-        box-shadow:       0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
         transition-duration: 250ms;
         transition-property: all;
@@ -29,6 +28,7 @@
         background-color: var(--app-action-color);
         border-radius:    64px;
         color:            white;
+        width:            auto;
         box-shadow:       0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
         transition-duration: 250ms;
@@ -55,10 +55,12 @@
         padding: 10px 8px;
         color: white;
         text-decoration: none;
+        border-bottom: 1px solid white;
       }
 
       a:hover {
         color: var(--app-secondary-dark-color);
+        cursor: pointer;
       }
 
       .list-item_icon {

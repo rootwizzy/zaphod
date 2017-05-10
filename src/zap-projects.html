@@ -19,16 +19,98 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .card-header .title {
+
+
+      }
+
+      .card-header .labels {
+        margin: 16px 0;
+      }
+
+      .card-header .labels .label {
+        display:          inline-block;
+        background-color: var(--app-gray-color);
+        padding:          6px;
+        border-radius:    5px;
+        font-size:        12px;
+        font-weight:      bold;
+      }
+
+      .card-header .labels .label.red {
+        background-color: #9b111e;
+        color: white;
+      }
+
+      .card-header .labels .label.orange {
+        background-color: #E34C32;
+        color: white;
+      }
+
     </style>
 
     <div class="card">
-      <h1>Open Team Based Learning</h1>
+      <div class="card-header">
+        <div class="title"><h1>OpenTBL</h1></div>
+        <div class="labels">
+          <div class="label orange">Ember.js</div>
+          <div class="label red">Ruby On Rails</div>
+        </div>
+      </div>
+
+      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
+      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <div class="title"><h1>CNC</h1></div>
+        <div class="labels">
+          <div class="label orange">Ember.js</div>
+          <div class="label red">Ruby On Rails</div>
+        </div>
+      </div>
       <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
       <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
     </div>
 
     <div class="card">
-      <h1>CIRTL Network Commons</h1>
+      <div class="card-header">
+        <div class="title"><h1>Totem Lodestar</h1></div>
+        <div class="labels">
+          <div class="label red">Ruby On Rails</div>
+        </div>
+      </div>
+      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
+      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="title"><h1>Thinkspace</h1></div>
+        <div class="labels">
+          <div class="label orange">Ember.js</div>
+          <div class="label red">Ruby On Rails</div>
+        </div>
+      </div>
+      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
+      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="title"><h1>Zaphod</h1></div>
+        <div class="labels">
+          <div class="label orange">Ember.js</div>
+          <div class="label red">Ruby On Rails</div>
+        </div>
+      </div>      
       <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
       <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
     </div>
@@ -50,17 +132,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
       connectedCallback() {
         super.connectedCallback();
+        this.findSite();
       }
 
-      // _testFunction() {
-      //   console.log('test func');
-      //   this.resp = fetch('https://api.github.com/users/rootwizzy');
-      //   this.resp.then(response => {
-      //     return response.json()
-      //   }).then(json => {
-      //     console.log('woot', json)
-      //   })
-      // }
+      findSite() {
+        var myHeaders = new Headers();
+
+        var options = { method: 'GET',
+                       headers: myHeaders,
+                       mode: 'cors',
+                       cache: 'default',
+                       credentials: 'include'
+                      };
+
+        fetch('https://github.com/sixthedge/cellar', options).then( resp => {
+          return resp.text();
+          console.log('resp', resp)
+        }).then(body => {
+          console.log('wut?', body)
+        }).catch(err =>{
+          console.log('err', err)
+        })
+
+      }
 
     }
 

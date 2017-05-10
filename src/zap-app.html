@@ -30,6 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-primary-color:   #24666C;
         --app-action-color:    #4FA75A;
         --app-secondary-dark-color: #105056;
+        --app-gray-color: #eee;
         --app-secondary-color: black;
 
         display: block;
@@ -64,6 +65,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         color: black;
         font-weight: bold;
       }
+
+      .header-title {
+        text-transform: uppercase;
+        font-weight:    bold;
+      }
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -89,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header slot="header" condenses reveals effects="waterfall">
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
-            <div main-title>[[page]]</div>
+            <div class="header-title" main-title>[[page]]</div>
           </app-toolbar>
         </app-header>
 
@@ -133,7 +139,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _routePageChanged(page) {
         // Polymer 2.0 will call with `undefined` on initialization.
         // Ignore until we are properly called with a string.
-        console.log('page?', page)
         if (page === undefined) {
           return;
         }
