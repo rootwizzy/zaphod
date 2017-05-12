@@ -25,15 +25,43 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         justify-content: space-between;
       }
       .card-header .title {
-
-
       }
 
-      .card-header .labels {
+      .card-header .card-actions {
         margin: 16px 0;
       }
 
-      .card-header .labels .label {
+      .card-header .card-actions a {
+        color:              #757575;
+        text-decoration:    none;
+        margin-left:        6px;
+        padding:            8px;
+        --iron-icon-height: 16px;
+        --iron-icon-width:  16px;
+
+      }
+
+      .card-header .card-actions a iron-icon{
+        margin-top:   -3px;
+        margin-right: 2px;
+      }
+
+      .card-header .card-actions  a:hover {
+        color:            var(--app-secondary-dark-color);
+        background-color: var(--app-gray-color);
+        border-radius:    5px;
+      }
+
+
+      .card-header .sub-title {
+        font-size: 10px;
+        font-style: italic;
+        margin-top: -15px;
+      }
+
+      .card-details .labels {}
+
+      .card-details .labels .label {
         display:          inline-block;
         background-color: var(--app-gray-color);
         padding:          6px;
@@ -42,78 +70,61 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight:      bold;
       }
 
-      .card-header .labels .label.red {
+      .card-details .labels .label.red {
         background-color: #9b111e;
         color: white;
       }
 
-      .card-header .labels .label.orange {
+      .card-details .labels .label.orange {
         background-color: #E34C32;
         color: white;
       }
-
     </style>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="title"><h1>OpenTBL</h1></div>
-        <div class="labels">
-          <div class="label orange">Ember.js</div>
-          <div class="label red">Ruby On Rails</div>
+    <template is="dom-repeat" items="{{projects}}">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="title">
+            <h1>[[item.title]]</h1>
+            <div class="sub-title">[[item.subtitle]]</div>
+          </div>
+
+          <div class="card-actions">
+            <template is="dom-if" if="[[item.url">
+              <a class="button" target="_blank" href$=[[item.url]]>
+                <iron-icon icon="my-icons:sphere"></iron-icon>
+                Site
+              </a>
+            </template>
+
+            <template is="dom-if" if="[[item.github]]">
+              <a target="_blank" href$=[[item.github]]>
+                <iron-icon icon="my-icons:github"></iron-icon>
+                Github
+              </a>
+            </template>
+          </div>
+        </div>
+
+        <div class="card-descrip">
+          <p>
+            [[item.description]]
+          </p>
+        </div>
+
+        <div class="card-details">
+          <div class="labels">
+            <template is="dom-repeat" items={{item.details.labels}}>
+              <div class$="label [[item.color]]">[[item.title]]</div>
+            </template>
+          </div>
+
+          <div class="card-expanded">
+          </div> 
         </div>
       </div>
-
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-    </div>
-
-
-    <div class="card">
-      <div class="card-header">
-        <div class="title"><h1>CNC</h1></div>
-        <div class="labels">
-          <div class="label orange">Ember.js</div>
-          <div class="label red">Ruby On Rails</div>
-        </div>
-      </div>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="title"><h1>Totem Lodestar</h1></div>
-        <div class="labels">
-          <div class="label red">Ruby On Rails</div>
-        </div>
-      </div>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="title"><h1>Thinkspace</h1></div>
-        <div class="labels">
-          <div class="label orange">Ember.js</div>
-          <div class="label red">Ruby On Rails</div>
-        </div>
-      </div>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="title"><h1>Zaphod</h1></div>
-        <div class="labels">
-          <div class="label orange">Ember.js</div>
-          <div class="label red">Ruby On Rails</div>
-        </div>
-      </div>      
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-    </div>
+    </template>
   </template>
 
   <script>
@@ -122,6 +133,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       static get properties() {
         name: String;
+        projects: Array;
       }
 
       constructor() {
@@ -132,30 +144,78 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
       connectedCallback() {
         super.connectedCallback();
-        this.findSite();
+        this.addProjects();
       }
 
-      findSite() {
-        var myHeaders = new Headers();
+      addProjects() {
+        var projects = [
+          { title: 'OpenTBL',
+            subtitle: 'Open Team-Based Learning',
+            github: 'https://github.com/sixthedge/opentbl',
+            url: 'http://www.opentbl.com/',
+            description: "",
+            details: {
+              labels: [
+                {title: 'Ember.js', color: 'orange'},
+                {title: 'Ruby On Rails', color: 'red'},
+              ],
+            }
+          },
 
-        var options = { method: 'GET',
-                       headers: myHeaders,
-                       mode: 'cors',
-                       cache: 'default',
-                       credentials: 'include'
-                      };
+          { title: 'CNC',
+            subtitle: 'CIRTL Network Commons',
+            github: null,
+            description: "",
+            url: "https://www.cirtl.net/",
+            details: {
+              labels: [
+                {title: 'Ember.js', color: 'orange'},
+                {title: 'Ruby On Rails', color: 'red'},
+              ],
+            }
+          },
 
-        fetch('https://github.com/sixthedge/cellar', options).then( resp => {
-          return resp.text();
-          console.log('resp', resp)
-        }).then(body => {
-          console.log('wut?', body)
-        }).catch(err =>{
-          console.log('err', err)
-        })
+          { title: 'Totem Lodestar',
+            subtitle: null,
+            github: 'https://github.com/sixthedge/totem-lodestar',
+            description: "",
+            url: "http://totem-docs.herokuapp.com/1.0.1",
+            details: {
+              labels: [
+                {title: 'Ruby On Rails', color: 'red'},
+              ],
+            }
+          },
 
+          { title: 'Thinkspace',
+            subtitle: null,
+            github: null,
+            description: "",
+            url: "http://www.thinkspace.org/",
+            details: {
+              labels: [
+                {title: 'Ember.js', color: 'orange'},
+                {title: 'Ruby On Rails', color: 'red'},
+              ],
+            }
+          },
+
+          { title: 'Zaphod',
+            subtitle: null,
+            github: 'https://github.com/rootwizzy/zaphod',
+            url: "https://zaphod-42.appspot.com/",
+            description: "",
+            details: {
+              labels: [
+                {title: 'Polymer', color: 'blue'},
+              ],
+            }
+          },
+
+        ]
+
+        this.projects = projects
       }
-
     }
 
     window.customElements.define(ZapProjects.is, ZapProjects);
