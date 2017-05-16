@@ -66,6 +66,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
 
+      .drawer-list a.disabled {
+        color: var(--app-gray-color);
+      }
+      .drawer-list a.disabled:hover {
+        cursor: default;
+      }
+
       .header-title {
         text-transform: uppercase;
         font-weight:    bold;
@@ -84,8 +91,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer id="drawer" slot="drawer">
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="about" href="/about">About Me</a>
           <a name="projects" href="/projects">Projects</a>
-          <a name="activity" href="/activity">Activity</a>
+          <a name="activity" class="disabled">
+            <iron-icon icon="my-icons:hammer"></iron-icon> Activity
+          </a>
         </iron-selector>
       </app-drawer>
 
@@ -104,6 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
+          <zap-about name="about"></zap-about>
           <zap-projects name="projects"></zap-projects>
           <zap-activity name="activity"></zap-activity>
           <my-view404 name="view404"></my-view404>

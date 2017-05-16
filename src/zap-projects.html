@@ -79,6 +79,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: #E34C32;
         color: white;
       }
+
+      .card-details .labels .label.blue {
+        background-color: #1e88e5;
+        color: white;
+      }
     </style>
 
     <template is="dom-repeat" items="{{projects}}">
@@ -108,9 +113,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
 
         <div class="card-descrip">
-          <p>
-            [[item.description]]
-          </p>
+          <template is="dom-repeat" items=[[item.description]]>
+            <p>[[item]]</p>
+          </template>
         </div>
 
         <div class="card-details">
@@ -153,7 +158,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             subtitle: 'Open Team-Based Learning',
             github: 'https://github.com/sixthedge/opentbl',
             url: 'http://www.opentbl.com/',
-            description: "",
+            description: ["OpenTBL is an educational application focused on building an effective team-based learning suite. OpenTBL provides both instructors and students with real-time communication and exercises."],
             details: {
               labels: [
                 {title: 'Ember.js', color: 'orange'},
@@ -165,7 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           { title: 'CNC',
             subtitle: 'CIRTL Network Commons',
             github: null,
-            description: "",
+            description: ["The CIRTL Network Commons is a portal for members and affiliates of the CIRTL Network where they can host or join in the communities, events and courses."],
             url: "https://www.cirtl.net/",
             details: {
               labels: [
@@ -178,7 +183,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           { title: 'Totem Lodestar',
             subtitle: null,
             github: 'https://github.com/sixthedge/totem-lodestar',
-            description: "",
+            description: ["Totem Lodestar is a rails gem used to generate documentation. Markdown files are used from a nested directory to provide guides, while source documentation can be compiled for API documentation."],
             url: "http://totem-docs.herokuapp.com/1.0.1",
             details: {
               labels: [
@@ -190,7 +195,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           { title: 'Thinkspace',
             subtitle: null,
             github: null,
-            description: "",
+            description: ["Thinkspace is an educational application that provides a suite of tools for creating and administering complete and pedagogic content for a wide variety of disciplines."],
             url: "http://www.thinkspace.org/",
             details: {
               labels: [
@@ -204,7 +209,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             subtitle: null,
             github: 'https://github.com/rootwizzy/zaphod',
             url: "https://zaphod-42.appspot.com/",
-            description: "",
+            description: ["Zaphod is this application, a web-component site used for the purposes of displaying information and portfolio. Using Polymer and its iron and paper imports for its responsive design."],
             details: {
               labels: [
                 {title: 'Polymer', color: 'blue'},

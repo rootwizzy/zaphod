@@ -1,0 +1,24 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="zap-about">
+  <template>
+    <style include="shared-styles">
+      :host {}
+    </style>
+    
+    <div class="card">
+      <h1>About Me</h1>
+    </div>    
+  </template>
+
+  <script>
+    class ZapAbout extends Polymer.Element {
+      static get is() { return 'zap-about'; }
+    }
+
+    window.customElements.define(ZapAbout.is, ZapAbout);
+  </script>
+</dom-module>
