@@ -38,20 +38,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding:            8px;
         --iron-icon-height: 16px;
         --iron-icon-width:  16px;
-
       }
-
       .card-header .card-actions a iron-icon{
         margin-top:   -3px;
         margin-right: 2px;
       }
-
       .card-header .card-actions  a:hover {
         color:            var(--app-secondary-dark-color);
         background-color: var(--app-gray-color);
         border-radius:    5px;
       }
 
+      .card-header .card-actions paper-menu-button paper-listbox a { 
+        padding: 0;
+        margin:  0;
+      }
+      paper-listbox a:hover {
+        color: var(--app-secondary-color);
+      }
 
       .card-header .sub-title {
         font-size: 10px;
@@ -96,19 +100,41 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </div>
 
           <div class="card-actions">
-            <template is="dom-if" if="[[item.url">
-              <a class="button" target="_blank" href$=[[item.url]]>
-                <iron-icon icon="my-icons:sphere"></iron-icon>
-                Site
-              </a>
+            <template is="dom-if" if="[[isMax]]">
+              <template is="dom-if" if="[[item.url">
+                <a class="button" target="_blank" href$=[[item.url]]>
+                  <iron-icon icon="my-icons:sphere"></iron-icon>
+                  Site
+                </a>
+              </template>
+
+              <template is="dom-if" if="[[item.github]]">
+                <a target="_blank" href$=[[item.github]]>
+                  Github
+                </a>
+              </template>
             </template>
 
-            <template is="dom-if" if="[[item.github]]">
-              <a target="_blank" href$=[[item.github]]>
-                <iron-icon icon="my-icons:github"></iron-icon>
-                Github
-              </a>
+            <template is="dom-if" if="[[isMin]]">
+              <paper-menu-button>
+                <paper-icon-button icon="my-icons:menu" slot="dropdown-trigger"></paper-icon-button>
+                <paper-listbox slot="dropdown-content">
+                  <template is="dom-if" if="[[item.url">
+                    <a target="_blank" href$=[[item.url]]>
+                      <paper-item>Site</paper-item>
+                    </a>
+                  </template>
+                  <template is="dom-if" if="[[item.github]]">
+                    <a target="_blank" href$=[[item.github]]>
+                      <paper-item>Github</paper-item>
+                    </a>
+                  </template>
+                </paper-listbox>
+              </paper-menu-button>
             </template>
+
+            <iron-media-query query="(max-width: 640px)" query-matches="{{isMin}}"></iron-media-query>
+            <iron-media-query query="(min-width: 640px)" query-matches="{{isMax}}"></iron-media-query>
           </div>
         </div>
 
@@ -137,8 +163,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       static get is() { return 'zap-projects'; }
 
       static get properties() {
-        name: String;
-        projects: Array;
+        return {
+          name: String,
+          projects: Array,
+          isMin: Boolean,
+          isMax: Boolean,  
+        }
+
       }
 
       constructor() {
@@ -150,6 +181,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       connectedCallback() {
         super.connectedCallback();
         this.addProjects();
+      }
+
+      _matches(event) {
+        console.log('event?', event)
       }
 
       addProjects() {

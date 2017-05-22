@@ -20,6 +20,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+
+<link rel="import" href="../../bower_components/neon-animation/web-animations.html">
 <link rel="import" href="zap-contact.html">
 <link rel="import" href="my-icons.html">
 
@@ -27,11 +33,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style>
       :host {
-        --app-primary-color:   #24666C;
-        --app-action-color:    #4FA75A;
+        --app-primary-color:        #24666C;
+        --app-action-color:         #4FA75A;
+        --app-text-color:           #757575;
         --app-secondary-dark-color: #105056;
-        --app-gray-color: #eee;
-        --app-secondary-color: black;
+        --app-gray-color:           #eee;
+        --app-secondary-color:      black;
 
         display: block;
       }
@@ -119,7 +126,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <zap-activity name="activity"></zap-activity>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
-
         <zap-contact></zap-contact>
 
       </app-header-layout>

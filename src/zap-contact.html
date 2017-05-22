@@ -9,8 +9,8 @@
       :host {
         display: block;
         position: fixed;
-        bottom:   16px;
-        right:    16px;
+        bottom:   24px;
+        right:    24px;
       }
 
       .action--max {
@@ -88,55 +88,14 @@
     <div class$="action--[[size]]" on-click="_toggleSize">
       <template is="dom-if" if="{{isMax}}">
         <div class="list">
-
-          <a class="list-item" target="_blank" href="https://plus.google.com/115984629662532785581">
-            <div class="list-item_icon">
-              <iron-icon icon="my-icons:google"></iron-icon>
-            </div>
-            <div class="list-item_text">rootwizzy@gmail.com</div>
-          </a>
-
-          <a class="list-item" target="_blank" href="https://github.com/rootwizzy">
-            <div class="list-item_icon">
-              <iron-icon icon="my-icons:github"></iron-icon>
-            </div>
-            <div class="list-item_text">rootwizzy</div>
-          </a>
-
-          <a class="list-item" target="_blank" href="https://www.linkedin.com/in/zack-johnson-52686058/">
-            <div class="list-item_icon">
-              <iron-icon icon="my-icons:linkedin"></iron-icon>
-            </div>
-            <div class="list-item_text">Zack Johnson</div> 
-          </a>
-
-          <a class="list-item" target="_blank" href="https://twitter.com/rootwizzy1">
-            <div class="list-item_icon">
-              <iron-icon icon="my-icons:twitter"></iron-icon>
-            </div>
-            <div class="list-item_text">rootwizzy1</div>        
-          </a>
-
-          <a class="list-item" target="_blank" href="https://www.facebook.com/zmjohnson91">
-            <div class="list-item_icon">
-              <iron-icon icon="my-icons:facebook"></iron-icon>
-            </div>
-            <div class="list-item_text">zmjohnson91</div>
-          </a>
-
-          <a class="list-item" target="_blank" href="https://www.reddit.com/user/rootwizzy/">
-            <div class="list-item_icon">
-              <iron-icon icon="my-icons:reddit"></iron-icon>
-            </div>
-            <div class="list-item_text">rootwizzy</div>
-          </a>
-
-          <a class="list-item" target="_blank" href="http://steamcommunity.com/id/rootwizzy/">
-            <div class="list-item_icon">
-              <iron-icon icon="my-icons:steam"></iron-icon>
-            </div>
-            <div class="list-item_text">WiZZY</div>
-          </a>
+          <template is="dom-repeat" items="{{contacts}}">
+            <a class="list-item" target="_blank" href$="[[item.url]]">
+              <div class="list-item_icon">
+                <iron-icon icon$="my-icons:[[item.icon]]"></iron-icon>
+              </div>
+              <div class="list-item_text">[[item.title]]</div>
+            </a>
+          </template>
 
           <a>
             <div class="compress">
@@ -168,7 +127,26 @@
 
           isMin: {type: Boolean, value: true},
           isMax: {type: Boolean, value: false},
+          contacts: Array,
         }
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this.addContacts();
+      }
+
+      addContacts() {
+        var contacts = [
+          {url: 'https://plus.google.com/115984629662532785581', title: 'rootwizzy@gmail.com', icon: 'google'},
+          {url: 'https://github.com/rootwizzy', title: 'rootwizzy', icon: 'github'},
+          {url: 'https://www.linkedin.com/in/zack-johnson-52686058/', title: 'Zack Johnson', icon: 'linkedin'},
+          {url: 'https://twitter.com/rootwizzy1', title: 'Rootwizzy1', icon: 'twitter'},
+          {url: 'https://www.facebook.com/zmjohnson91', title: 'zmjohnson91', icon: 'facebook'},
+          {url: 'https://www.reddit.com/user/rootwizzy/', title: 'rootwizzy', icon: 'reddit'},
+          {url: 'http://steamcommunity.com/id/rootwizzy/', title: 'WiZZY', icon: 'steam'},
+        ]
+        this.contacts = contacts;
       }
 
       _toggleSize() {
@@ -188,7 +166,6 @@
           this.isMin = false;
           this.isMax = true;
         }
-
       }
     }
 
