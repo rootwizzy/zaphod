@@ -26,7 +26,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 
 <link rel="import" href="../../bower_components/neon-animation/web-animations.html">
-<link rel="import" href="zap-contact.html">
+<link rel="import" href="zap-message.html">
+<link rel="import" href="zap-footer.html">
+
 <link rel="import" href="my-icons.html">
 
 <dom-module id="zap-app">
@@ -126,10 +128,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <zap-activity name="activity"></zap-activity>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
-        <zap-contact></zap-contact>
+        <zap-message></zap-message>
 
       </app-header-layout>
     </app-drawer-layout>
+    <zap-footer></zap-footer>
+
   </template>
 
   <script>
@@ -162,7 +166,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         // If no page was found in the route data, page will be an empty string.
         // Deault to 'view1' in that case.
-        this.page = page || 'projects';
+        this.page = page || 'about';
 
         // Close a non-persistent drawer when the page & route are changed.
         if (!this.$.drawer.persistent) {

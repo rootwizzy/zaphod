@@ -3,7 +3,7 @@
 
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="zap-contact">
+<dom-module id="zap-message">
   <template>
     <style include="shared-styles">
       :host {
@@ -114,8 +114,8 @@
   </template>
 
   <script>
-    class ZapContact extends Polymer.Element {
-      static get is() { return 'zap-contact'; }
+    class ZapMessage extends Polymer.Element {
+      static get is() { return 'zap-message'; }
 
       static get properties() {
         return {
@@ -138,13 +138,11 @@
 
       addContacts() {
         var contacts = [
-          {url: 'https://plus.google.com/115984629662532785581', title: 'rootwizzy@gmail.com', icon: 'google'},
+          {url: 'https://plus.google.com/u/1/110346803970203764777', title: 'zmjohnson42', icon: 'google'},
           {url: 'https://github.com/rootwizzy', title: 'rootwizzy', icon: 'github'},
           {url: 'https://www.linkedin.com/in/zack-johnson-52686058/', title: 'Zack Johnson', icon: 'linkedin'},
-          {url: 'https://twitter.com/rootwizzy1', title: 'Rootwizzy1', icon: 'twitter'},
+          {url: 'https://twitter.com/zmjohnson42', title: 'zmjohnson42', icon: 'twitter'},
           {url: 'https://www.facebook.com/zmjohnson91', title: 'zmjohnson91', icon: 'facebook'},
-          {url: 'https://www.reddit.com/user/rootwizzy/', title: 'rootwizzy', icon: 'reddit'},
-          {url: 'http://steamcommunity.com/id/rootwizzy/', title: 'WiZZY', icon: 'steam'},
         ]
         this.contacts = contacts;
       }
@@ -169,6 +167,6 @@
       }
     }
 
-    window.customElements.define(ZapContact.is, ZapContact);
+    window.customElements.define(ZapMessage.is, ZapMessage);
   </script>
 </dom-module>

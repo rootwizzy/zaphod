@@ -1,0 +1,68 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="zap-footer">
+  <template>
+    <style include="shared-styles">
+      :host {}
+
+      .is-max {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      .is-min {
+        position: fixed;
+        bottom: 0;
+        z-index: 2;
+      }
+    </style>
+
+    <template is="dom-if" if=[[isMax]]>
+      <div class="is-max"> Contact Info</div>
+    </template>
+
+    <template is="dom-if" if=[[isMin]]>
+      <div class="is-min"> WutWut </div>
+    </template>
+
+
+    <iron-media-query query="(max-width: 640px)" query-matches="{{isMin}}"></iron-media-query>
+    <iron-media-query query="(min-width: 640px)" query-matches="{{isMax}}"></iron-media-query>
+  </template>
+
+  <script>
+    class ZapFooter extends Polymer.Element {
+      static get is() { return 'zap-footer'; }
+
+      static get properties() {
+        return {
+          isMin: Boolean,
+          isMax: Boolean,
+          info: Array,
+        }
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this.addInfo();
+      }
+
+      addInfo() {
+        var info = [
+          {icon: '', title: 'rootwizzy@gmail.com'},
+          {icon: '', title: '815-861-0089'}
+
+        ]
+      }
+
+    }
+
+    window.customElements.define(ZapFooter.is, ZapFooter);
+  </script>
+</dom-module>
+
