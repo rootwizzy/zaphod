@@ -2,7 +2,9 @@
   "entrypoint": "index.html",
   "shell": "src/zap-app.html",
   "fragments": [
-    "src/zap-contact.html",
+    "src/zap-about.html",
+    "src/zap-message.html",
+    "src/zap-footer.html",
     "src/zap-projects.html",
     "src/zap-activity.html",
     "src/my-view404.html"

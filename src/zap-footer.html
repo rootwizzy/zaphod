@@ -8,26 +8,77 @@
     <style include="shared-styles">
       :host {}
 
-      .is-max {
+      .info-list--max {
         position: fixed;
         bottom: 0;
         left: 0;
         z-index: 2;
+        width: 256px;
+
+        border-top: 1px solid #757575;
       }
 
-      .is-min {
+      .info-list--max .item {
+        font-size: small;
+        color: #757575;
+        padding: 0 16px;
+        line-height: 40px;
+        font-weight: bold;
+      }
+
+      .info-list--max .item iron-icon {
+        margin-right: 8px;
+        width: 16px;
+      }
+
+      .info-list--min {
         position: fixed;
         bottom: 0;
-        z-index: 2;
+        background-color: var(--app-secondary-dark-color);
+        width: 100%;
+        text-align: center;
+        transition-duration: 250ms;
+        transition-property: all;;
+      }
+
+
+      .info-list--min .item {
+        font-size: 10px;
+        color: white;
+        padding: 2px;
+        font-weight: bold;
+        display: inline-block;
+      }
+
+      .info-list--min .item iron-icon {
+        margin-right: 2px;
+        margin-bottom: 2px;
+        width: 10px;
       }
     </style>
 
     <template is="dom-if" if=[[isMax]]>
-      <div class="is-max"> Contact Info</div>
+      <div class="info-list--max">
+        <template is="dom-repeat" items={{info}}>
+          <div class="item">
+            <iron-icon icon$="my-icons:[[item.icon]]"></iron-icon>
+            [[item.title]]
+          </div>
+        </template> 
+      </div>
+
+
     </template>
 
     <template is="dom-if" if=[[isMin]]>
-      <div class="is-min"> WutWut </div>
+      <div class="info-list--min">
+        <template is="dom-repeat" items={{info}}>
+          <div class="item">
+            <iron-icon icon$="my-icons:[[item.icon]]"></iron-icon>
+            [[item.title]]
+          </div>
+        </template>
+      </div>
     </template>
 
 
@@ -54,10 +105,11 @@
 
       addInfo() {
         var info = [
-          {icon: '', title: 'rootwizzy@gmail.com'},
-          {icon: '', title: '815-861-0089'}
-
-        ]
+          {icon: 'mail', title: 'zmjohnson42@gmail.com'},
+          {icon: 'phone', title: '815-861-0089'},
+          {icon: 'twitter', title: '@zmjohnson42'}
+        ];
+        this.info = info;
       }
 
     }
