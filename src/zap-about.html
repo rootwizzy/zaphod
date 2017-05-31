@@ -8,6 +8,38 @@
     <style include="shared-styles">
       :host {}
 
+      .about {
+        display: flex;
+        padding: 8px 0;
+      }
+      .about_description {
+        flex: 2 2 auto;
+      }
+      .about_image {
+        flex: 1 1 auto;
+        padding: 0 8px;
+      }
+
+      .about_image img {
+        max-width:               200px;
+        border-top-left-radius:  5px;
+        border-top-right-radius: 5px;
+      }
+
+      .about_image img.full {
+        border-radius: 5px;
+      }
+      .about_image-caption {
+        background-color:           var(--app-secondary-light-color);
+        color:                      white;
+        margin-top:                 -8px;
+        font-size:                  12px;
+        text-align:                 center;
+        max-width:                  200px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius:  5px;
+        font-weight: bold;
+      }
       .quote {
         background-color: var(--app-secondary-light-color);
         color:            white;
@@ -26,8 +58,10 @@
         font-weight: bold;
       }
       .highlights_item-description {
-
+        font-size: 12px;
+        padding-left: 8px;
       }
+
     </style>
     
     <div class="card">
@@ -35,40 +69,56 @@
       <h2>Who Am I?</h2>
       <strong>tl;dr -  Intrinsic drive to create and improve technology, systems and workflows. Strong teamwork and leadership values formed from a base of effective communication.</strong>
 
-      <p>
-        Technology and computers have always been staple in my life, mostly in part to my dad's passion and career in technology. It was this curiosity of the digital world that landed me my first computer on my Fisher Price table and from there I was hooked.
-      </p>
-      <div class="quote">Others may say it was because typing is a one person job</div>
+      <div class="about">
+        <div class="about_description">
+          Technology and computers have always been staple in my life, mostly in part to my dad's passion and career in technology. It was this curiosity of the digital world that landed me my first computer on my Fisher Price table and from there I was hooked.
+        </div>
+        <div class="about_image">
+          <img src="images/oldMe.jpeg"></img>
+          <div class="about_image-caption">Others may say it was because typing is a one person job</div>
 
+        </div>
+      </div>
 
-      <p>
-        Tinkering on computers was not my only hobby growing up either, in both high school and college I played Football. I found myself attracted to the comradery of the sport. Being part of a group of people, all working for a singular goal and the challenges it presents has been an experience worth the long days and bruises.
+      <div class="about">
+        <div class="about_image">
+          <img src="images/collegeMe.jpg"></img>
+          <div class="about_image-caption">My joint's may say otherwise</div>
+        </div>
+        <div class="about_description">
+          Tinkering on computers was not my only hobby growing up either, in both high school and college I played Football. I found myself attracted to the comradery of the sport. Being part of a group of people, all working for a singular goal and the challenges it presents has been an experience worth the long days and bruises.
+        </div>
 
-      </p>
-       <div class="quote">My knee's may say otherwise a few years from now</div>
+      </div>
 
-      <p>
-        Now in the workforce I can see how these experiences are not mutually exclusive. Whether it's working directly with a client, a small group of developers or a large organization, you are part of a team working towards a goal.
-      </p>
+      <div class="about">
+        <div class="about_description">
+          Now in the workforce I can see how these experiences are not mutually exclusive. Whether it's working directly with a client, a small group of developers or a large organization, you are part of a team working towards a goal.
+        </div>
+        <div class="about_image">
+          <img src="images/nowMe.jpg" class="full"></img>
+        </div>
+      </div>
+
       <hr>
 
       <h2>Highlights</h2>
       <div class="highlights">
         <div class="highlights_item">
           <div class="highlights_item-title">Implemented Agile Work Flows</div>
-          <div class="highlights_item-description"></div>
+          <div class="highlights_item-description">Working with a small development team with an ever increasing number of projects we needed a more structured development cycle. After researching Agile development I began to rework our Git work-flows standardizing branches, issues, commits and pull-requests. Along with these changes we formed our Sprint cycles managing user-stories and stand ups as part of our daily development tasks. </div>
         </div>
         <div class="highlights_item">
           <div class="highlights_item-title">Created Documentation Tools</div>
-          <div class="highlights_item-description"></div>
+          <div class="highlights_item-description">Documentation is an important keystone in open-source projects, for both the source code and for the practices and systems employed by the community. Totem-Lodestar was my attempt to encompass this into one extend-able product that could quickly deployed across multiple projects.</div>
         </div>
         <div class="highlights_item">
           <div class="highlights_item-title">Developed Ember & Rails Applications</div>
-          <div class="highlights_item-description"></div>
+          <div class="highlights_item-description">Development projects that I have been involved with began with the Ruby on Rails (API) and Ember.js (Client) as our stack. Using these tools over the course of old and new projects provided the experience of maintaining and upgrading systems as these tools and practices were expanded on. Our projects are used either directly in the educational field, or used by those involved with education. For more information about these projects see <a href="/projects">Projects.</a></div>
         </div>
         <div class="highlights_item">
           <div class="highlights_item-title">Installed Telephone & Ethernet Networks</div>
-          <div class="highlights_item-description"></div>
+          <div class="highlights_item-description">During my time as an independent contractor working with local businesses I had a broad range of jobs. I had installed networks, both phone and Ethernet, from running the cable to administering and managing the network users and applications. Finding the best solution for each client was a new challenge each time.</div>
         </div>
       </div>
     </div>
