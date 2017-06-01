@@ -5,27 +5,27 @@ threadsafe: true
 handlers:
 - url: /bower_components
   static_dir: bower_components
-  secure: always
+  # secure: always
 
 - url: /images
   static_dir: images
-  secure: always
+  # secure: always
 
 - url: /src
   static_dir: src
-  secure: always
+  # secure: always
 
 - url: /service-worker.js
   static_files: service-worker.js
   upload: service-worker.js
-  secure: always
+  # secure: always
 
 - url: /manifest.json
   static_files: manifest.json
   upload: manifest.json
-  secure: always
+  # secure: always
 
 - url: /.*
   static_files: index.html
   upload: index.html
-  secure: always
+  # secure: always
