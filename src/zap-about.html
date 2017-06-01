@@ -71,16 +71,29 @@
         padding-left: 8px;
       }
 
+      button {
+        background-color: var(--app-action-color);
+        border-radius: 5px;
+        border: none;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 16px;
+      }
+
+      button iron-icon{ margin-top: -8px; margin-right: 4px; }
+
     </style>
     
     <div class="card">
 
       <h2>Who Am I?</h2>
-      <strong>tl;dr -  Intrinsic drive to create and improve technology, systems and workflows. Strong teamwork and leadership values formed from a base of effective communication.</strong>
+      <strong>tl;dr -  I am inherently driven to create and improve all types of technology, systems and workflows. I have a broad experience working as a part of a team, whether leading or following.</strong>
 
       <div class="about">
         <div class="about_description">
-          Technology and computers have always been staple in my life, mostly in part to my dad's passion and career in technology. It was this curiosity of the digital world that landed me my first computer on my Fisher Price table and from there I was hooked.
+          From a young age, I have been immersed in all things technological, mostly in part to my dad's passion and career in technology. It was this curiosity of the digital world that landed me my first computer on my Fisher Price table and from there I was hooked.
         </div>
         <div class="about_image">
           <img src="images/oldMe.jpeg"></img>
@@ -92,17 +105,17 @@
       <div class="about">
         <div class="about_image">
           <img src="images/collegeMe.jpg"></img>
-          <div class="about_image-caption">My joint's may say otherwise</div>
+          <div class="about_image-caption">My joints may say otherwise</div>
         </div>
         <div class="about_description">
-          Tinkering on computers was not my only hobby growing up either, in both high school and college I played Football. I found myself attracted to the comradery of the sport. Being part of a group of people, all working for a singular goal and the challenges it presents has been an experience worth the long days and bruises.
+          I didn’t spend my entire life inside on a PC. I participated in football on the offensive line for (8) years of high school and college. I am attracted to the comradery of a team. While in high school I was a standout on the team and received conference honors. However in college, I found myself playing a supporting role, not a starring one. The experiences were different (the bruises were the same), but each taught me the value of teamwork – whatever the role.
         </div>
 
       </div>
 
       <div class="about">
         <div class="about_description">
-          Now in the workforce I can see how these experiences are not mutually exclusive. Whether it's working directly with a client, a small group of developers or a large organization, you are part of a team working towards a goal.
+          As a member of the workforce, my ability to work and enjoy being part of team has been a real asset. Whether working directly with a client, small groups of developers, or a large organization – teams help to accomplish goals.
         </div>
         <div class="about_image">
           <img src="images/nowMe.jpg" class="full"></img>
@@ -127,9 +140,17 @@
         </div>
         <div class="highlights_item">
           <div class="highlights_item-title">Installed Telephone & Ethernet Networks</div>
-          <div class="highlights_item-description">During my time as an independent contractor working with local businesses I had a broad range of jobs. I had installed networks, both phone and Ethernet, from running the cable to administering and managing the network users and applications. Finding the best solution for each client was a new challenge each time.</div>
+          <div class="highlights_item-description">As an independent contractor working with local businesses performed a broad range of tasks across many industries. Installed networks, for both phone and PC Ethernet applications.  Administered and managed the network users and applications. Each client was a new challenge.</div>
         </div>
       </div>
+
+
+      <form method="get" action="images/resume.pdf">
+        <button type="submit">
+          <iron-icon icon="my-icons:download"></iron-icon>
+          Resume
+        </button>
+      </form>
     </div>
   </template>
 
