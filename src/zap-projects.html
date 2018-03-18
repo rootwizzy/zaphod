@@ -49,7 +49,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         border-radius:    5px;
       }
 
-      .card-header .card-actions paper-menu-button paper-listbox a { 
+      .card-header .card-actions paper-menu-button paper-listbox a {
         padding: 0;
         margin:  0;
       }
@@ -76,6 +76,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       .card-details .labels .label.red {
         background-color: #9b111e;
+        color: white;
+      }
+
+      .card-details .labels .label.green {
+        background-color: #58ce80;
         color: white;
       }
 
@@ -152,7 +157,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </div>
 
           <div class="card-expanded">
-          </div> 
+          </div>
         </div>
       </div>
     </template>
@@ -167,7 +172,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           name: String,
           projects: Array,
           isMin: Boolean,
-          isMax: Boolean,  
+          isMax: Boolean,
         }
 
       }
@@ -244,6 +249,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             details: {
               labels: [
                 {title: 'Polymer', color: 'blue'},
+              ],
+            }
+          },
+
+          { title: 'Seidr Components',
+            subtitle: 'React Component Library',
+            github: 'https://github.com/rootwizzy/Seidr-Components',
+            url: "https://www.npmjs.com/package/seidr-components",
+            description: ["Seidr Components is a quick project I have started to learn React and build a component library to use for future projects."],
+            details: {
+              labels: [
+                {title: 'React', color: 'green'},
               ],
             }
           },
